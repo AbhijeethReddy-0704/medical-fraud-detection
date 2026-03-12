@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+venv/
+env/
+.env
+
+# Data
+data/raw/
+data/processed/*.csv
+*.csv
+
+# Models
+src/models/saved/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Docker
+.docker/
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
