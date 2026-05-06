@@ -48,7 +48,7 @@ def load_data():
             df["fraud_score"],
             bins=[0, 0.3, 0.6, 0.8, 1.0],
             labels=["Low", "Medium", "High", "Critical"]
-        )
+        ).astype(str)
         return df
     else:
         # Generate synthetic demo data
@@ -80,7 +80,7 @@ def load_data():
             df["fraud_score"],
             bins=[0, 0.3, 0.6, 0.8, 1.0],
             labels=["Low", "Medium", "High", "Critical"]
-        )
+        ).astype(str)
         return df
 
 
@@ -220,7 +220,12 @@ display_cols = [c for c in [
 
 if display_cols:
     st.dataframe(
-        high_risk[display_cols].style.background_gradient(subset=["fraud_score"], cmap="Reds"),
+        high_risk[display_cols],
+        column_config={
+            "fraud_score": st.column_config.ProgressColumn(
+                "Fraud Score", min_value=0, max_value=1, format="%.4f"
+            )
+        },
         use_container_width=True
     )
 
