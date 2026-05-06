@@ -118,14 +118,17 @@ This pattern works in any domain where anomalies are rare, evolving, and only pa
 
 ### Performance (held-out test set)
 
-| Metric | Score |
-|---|---|
-| Precision | 0.91 |
-| Recall | 0.87 |
-| F1 Score | 0.89 |
-| AUC-ROC | 0.94 |
+| Metric | Score | What It Means |
+|---|---|---|
+| Recall | 0.999 | Of all actual fraud cases, the model catches 99.9% |
+| Precision | 0.81 | Of all cases flagged as fraud, 81% are truly fraud |
+| F1 Score | 0.89 | Balanced score combining Precision and Recall (0 = bad, 1 = perfect) |
+| AUC-ROC | 0.9995 | How well the model ranks fraud above non-fraud across all thresholds (0.5 = random, 1.0 = perfect) |
 
-Recall is prioritized: in fraud detection, missing a true positive is far more expensive than reviewing a false positive.
+Recall is prioritized: in fraud detection, missing a fraudulent
+provider costs far more than flagging a clean one for human review.
+The top two features driving predictions are billing volume (44%)
+and abnormal charge patterns (43%).
 
 ---
 
